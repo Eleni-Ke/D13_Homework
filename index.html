@@ -64,8 +64,8 @@ The user should be able to see the list of tasks, add new ones, delete existing 
 
     <ul id="myTaskList">
       <li>cooking</li>
-      <li>backing</li>
-      <li>dancing</li>
+      <li>backinkjhgg</li>
+      <li>dancinnmbhjsg</li>
       <li>singing</li>
     </ul>
 
@@ -156,16 +156,25 @@ The user should be able to see the list of tasks, add new ones, delete existing 
                - Reuse the functions previously created
             */
            const bubblesort = function () {
-             let tasks = document.querySelectorAll("#myTaskList li");
+              let tasks = getTasksAsArray();
+              console.log(tasks);
+              for (let i = 0; i < tasks.length - 1; i++) { 
+                if (tasks[i] > tasks[i + 1]) { //checks if the i elem is bigger than the next one
+                  let a = tasks[i];                   //it stores the elem in new var
+                  let b = tasks[i + 1];
+                  tasks[i] = b;
+                  tasks[i + 1] = a;      //if the i element is biggen it swaps the positions of the elems
+                }                                    //by putting the var in the others position
+              }
+              let liElementToRename = document.querySelectorAll("li");
+              console.log(liElementToRename);
+              let j = 0;
+              while (j < tasks.length) {
+                liElementToRename[j].innerText = tasks[j];
+                j++
+              }
              console.log(tasks);
-             for (let i = 0; i < tasks.length; i++) { 
-               if (tasks[i].innerText > tasks[i + 1].innerText) {         //checks if the i elem is bigger than the next one
-                 let a = tasks[i].innerText;                   //it stores the elem in new var
-                 let b = tasks[i + 1].innerText;
-                 tasks[i].innerText = b;
-                 tasks[i + 1].innerText = a;                  //if the i element is biggen it swaps the positions of the elems
-               }                                    //by putting the var in the others position
-             }
+             console.log(liElementToRename[1]);
            }
     </script>
   </body>
